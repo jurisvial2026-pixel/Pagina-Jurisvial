@@ -2,38 +2,963 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Juris Vial | Especialistas en Tránsito Ecuador</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>JurisVial · Asesoría Legal en Tránsito | Judicial y Administrativo | Guayaquil, Ecuador</title>
+    <!-- Google Fonts + Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; color: #333; }
-        header { background: #002366; color: white; padding: 20px; text-align: center; }
-        .hero { padding: 50px; background: #f4f4f4; text-align: center; }
-        .contact-form { max-width: 500px; margin: 20px auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
-        input, button { display: block; width: 100%; margin: 10px 0; padding: 10px; }
-        button { background: #D4AF37; color: white; border: none; cursor: pointer; font-weight: bold; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fefef8;
+            color: #1e2a32;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-dark: #0a2b3e;
+            --primary-deep: #124263;
+            --accent-gold: #c2a15b;
+            --accent-gold-light: #e0cda3;
+            --gray-bg: #f6f8fa;
+            --gray-border: #e2e8f0;
+            --text-dark: #1e293b;
+            --text-soft: #334155;
+            --white: #ffffff;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: var(--accent-gold);
+            border-radius: 3px;
+        }
+        .section-subhead {
+            color: var(--text-soft);
+            font-size: 1.1rem;
+            max-width: 680px;
+            margin-bottom: 2.5rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            border-radius: 40px;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--primary-dark);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+        .btn-primary:hover {
+            background: #0e3b55;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--primary-dark);
+            color: var(--primary-dark);
+        }
+        .btn-outline:hover {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            color: var(--accent-gold);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary-dark);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f1f5f9 0%, #eef2f6 100%);
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        .hero-content {
+            flex: 1.2;
+        }
+        .hero-badge {
+            background: var(--accent-gold-light);
+            color: var(--primary-dark);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--text-soft);
+            margin-bottom: 2rem;
+            max-width: 550px;
+        }
+        .hero-visual {
+            flex: 0.9;
+            text-align: center;
+        }
+        .hero-visual i {
+            font-size: 12rem;
+            color: var(--accent-gold);
+            opacity: 0.7;
+        }
+
+        /* Cards judiciales (estilo base) */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .service-card {
+            background: var(--white);
+            padding: 2rem 1.5rem;
+            border-radius: 28px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--gray-border);
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold-light);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.2rem;
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-dark);
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+
+        /* Estilos para la sección administrativa mejorada */
+        .admin-section {
+            background: linear-gradient(145deg, #ffffff 0%, #fefaf5 100%);
+        }
+        .admin-category {
+            margin-bottom: 4rem;
+        }
+        .admin-category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-gold);
+            padding-left: 1.2rem;
+        }
+        .admin-category-header i {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+        }
+        .admin-category-header h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin: 0;
+        }
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+        }
+        /* Tarjetas expandibles (acordeón interno) */
+        .admin-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .admin-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold-light);
+        }
+        .admin-card-header {
+            padding: 1.2rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            cursor: pointer;
+            background: white;
+            transition: background 0.2s;
+            border-bottom: 1px solid transparent;
+        }
+        .admin-card-header i:first-child {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+        }
+        .admin-card-header h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            flex: 1;
+            margin: 0;
+        }
+        .admin-card-header .toggle-icon {
+            font-size: 1rem;
+            color: var(--accent-gold);
+            transition: transform 0.3s;
+        }
+        .admin-card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fefcf9;
+            padding: 0 1.5rem;
+            border-top: 1px solid transparent;
+        }
+        .admin-card-content p {
+            padding: 1rem 0 1.2rem 0;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .admin-card.expanded .admin-card-header {
+            border-bottom-color: var(--accent-gold-light);
+        }
+        .admin-card.expanded .admin-card-content {
+            max-height: 500px; /* suficiente para textos largos */
+            border-top-color: var(--gray-border);
+        }
+        .admin-card.expanded .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Panel de consulta de multas - NUEVA VERSIÓN con iconos grandes estáticos y dinámico */
+        .consulta-panel {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            margin-top: 1rem;
+            border: 1px solid var(--gray-border);
+        }
+        .consulta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .consulta-card {
+            background: var(--gray-bg);
+            border-radius: 28px;
+            padding: 2rem 1rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        .consulta-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        .consulta-card i {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+        .consulta-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary-dark);
+        }
+        .link-consulta {
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .link-consulta:hover {
+            background: var(--accent-gold);
+        }
+
+        /* Sección de búsqueda por cantón */
+        .search-canton {
+            background: #fef7e0;
+            border-radius: 28px;
+            padding: 1.8rem;
+            margin: 2rem 0 1.5rem;
+        }
+        .search-canton h4 {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .search-box {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .search-box input {
+            flex: 1;
+            padding: 0.9rem 1.2rem;
+            border-radius: 60px;
+            border: 1px solid var(--gray-border);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+        .search-box input:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(194, 161, 91, 0.2);
+        }
+        .search-box button {
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 0 1.8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .search-box button:hover {
+            background: var(--accent-gold);
+        }
+        .suggestions-list {
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-md);
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 0.5rem;
+            display: none;
+        }
+        .suggestions-list div {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            border-bottom: 1px solid var(--gray-border);
+        }
+        .suggestions-list div:hover {
+            background: var(--accent-gold-light);
+        }
+
+        /* Icono dinámico (se muestra solo cuando se selecciona un cantón) */
+        .dynamic-card {
+            margin-top: 1.5rem;
+            animation: fadeInUp 0.4s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .info-backup {
+            background: #e8f0fe;
+            border-radius: 20px;
+            padding: 1rem;
+            font-size: 0.85rem;
+            display: flex;
+            gap: 0.8rem;
+            align-items: flex-start;
+            margin-top: 1.5rem;
+        }
+        .info-backup i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Testimonios */
+        .testimonials-section { background: var(--gray-bg); }
+        .slider-container { max-width: 900px; margin: 2rem auto; }
+        .testimonial-slide { background: white; padding: 2.5rem; border-radius: 32px; text-align: center; }
+        .slider-controls { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+        .slider-btn { background: var(--primary-dark); color: white; border: none; width: 44px; height: 44px; border-radius: 60px; cursor: pointer; }
+
+        /* FAQ */
+        .faq-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+        .faq-item { background: white; border-radius: 20px; border: 1px solid var(--gray-border); overflow: hidden; }
+        .faq-question { padding: 1.2rem 1.8rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out; background: #fefcf7; padding: 0 1.8rem; }
+        .faq-answer p { padding: 0 0 1.2rem 0; }
+        .faq-item.active .faq-answer { max-height: 300px; }
+        .faq-item.active .faq-question i { transform: rotate(180deg); }
+
+        /* Contacto */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .form-group { margin-bottom: 1.2rem; }
+        input, textarea { width: 100%; padding: 0.9rem 1rem; border-radius: 20px; border: 1px solid var(--gray-border); font-family: inherit; }
+        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 99; text-decoration: none; }
+        footer { background: #0a1e2c; color: #cddfe7; padding: 2rem 0; text-align: center; }
+
+        @media (max-width: 880px) {
+            .nav-links { display: none; width: 100%; flex-direction: column; background: white; padding: 1rem; border-radius: 24px; }
+            .nav-links.active { display: flex; }
+            .menu-icon { display: block; }
+            .hero-content h1 { font-size: 2.3rem; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .admin-category-header h3 { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Juris Vial</h1>
-    <p>Expertos en derecho de tránsito en Ecuador</p>
-</header>
+<a href="https://wa.me/593999999999?text=Hola%20JurisVial,%20necesito%20asesoría%20legal%20en%20tránsito" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
-<section class="hero">
-    <h2>¿Tienes una multa injusta o un accidente?</h2>
-    <p>Estamos aquí para defender tus derechos en las vías.</p>
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo"><h1>JURIS<span>VIAL</span></h1></div>
+        <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#judicial">Judicial</a></li>
+            <li><a href="#administrativo">Administrativo</a></li>
+            <li><a href="#consulta">Consultar Multas</a></li>
+            <li><a href="#testimonios">Casos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section id="inicio" class="hero">
+    <div class="container hero-grid">
+        <div class="hero-content">
+            <div class="hero-badge"><i class="fas fa-gavel"></i> Especialistas en Derecho de Tránsito · Guayaquil</div>
+            <h1>Defensa legal integral: <br>ámbito judicial y administrativo</h1>
+            <p>En JurisVial abordamos tu caso desde todas las trincheras: ante jueces, fiscales y entidades de tránsito. Te acompañamos con rigor técnico y compromiso.</p>
+            <div>
+                <a href="#judicial" class="btn btn-primary"><i class="fas fa-balance-scale"></i> Servicios Judiciales</a>
+                <a href="#administrativo" class="btn btn-outline"><i class="fas fa-file-alt"></i> Trámites Administrativos</a>
+            </div>
+        </div>
+        <div class="hero-visual"><i class="fas fa-car-side"></i></div>
+    </div>
 </section>
 
-<section class="contact-form">
-    <h3>Contáctanos directamente</h3>
-    <form action="mailto:tuemail@ejemplo.com" method="post" enctype="text/plain">
-        <label>Tu correo electrónico:</label>
-        <input type="email" name="email" required placeholder="ejemplo@correo.com">
-        <label>Asunto:</label>
-        <input type="text" name="asunto" placeholder="¿Cómo podemos ayudarte?">
-        <button type="submit">Enviar solicitud de asesoría</button>
-    </form>
+<!-- ==================== SECCIÓN JUDICIAL ==================== -->
+<section id="judicial">
+    <div class="container">
+        <h2 class="section-title">⚖️ Servicios Judiciales</h2>
+        <p class="section-subhead">Procesos ante jueces de tránsito, fiscales y tribunales. Representación técnica y estratégica.</p>
+        <div class="cards-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3>Impugnación judicial de multas</h3>
+                <p>Evaluamos la legalidad de la multa y presentamos la impugnación formal ante el juez de tránsito correspondiente (no ante la institución). Te representamos para dejar sin efecto la sanción.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-car-crash"></i></div>
+                <h3>Defensa en accidentes con detención</h3>
+                <p>Gestionamos la liberación del conductor mediante medidas sustitutivas, demostrando falta de responsabilidad o negociando alternativas legales.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-truck"></i></div>
+                <h3>Recuperación de vehículo retenido por accidente</h3>
+                <p>Solicitamos al fiscal el peritaje y tramitamos la autorización para la devolución del automotor.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-wine-bottle"></i></div>
+                <h3>Defensa por detención por alcoholemia</h3>
+                <p>Asesoramos a conductores detenidos por ingerir licor, gestionamos sustituciones de prisión y recuperación del vehículo.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                <h3>Medidas sustitutivas en infracciones menos graves</h3>
+                <p>Presentamos solicitudes de medidas como multas, servicios comunitarios o comparecencias periódicas.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
+<!-- ==================== SECCIÓN ADMINISTRATIVA ==================== -->
+<section id="administrativo" class="admin-section">
+    <div class="container">
+        <h2 class="section-title">📋 Servicios Administrativos</h2>
+        <p class="section-subhead">Trámites ágiles ante la ANT, ATM, CTE y otras entidades. Te asesoramos paso a paso y realizamos las solicitudes por ti.</p>
+
+        <!-- Sección 1: Gestión de reclamos administrativos -->
+        <div class="admin-category">
+            <div class="admin-category-header">
+                <i class="fas fa-file-signature"></i>
+                <h3>1. Gestión de reclamos administrativos</h3>
+            </div>
+            <div class="admin-grid">
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-edit"></i><h4>Corrección de errores en citaciones</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Con base en la normativa vigente, te asesoramos y preparamos la solicitud de corrección de errores materiales en la citación (ej. datos incorrectos de la placa, del vehículo, del lugar o de la infracción), ya sea que la citación haya sido emitida mediante boleta física por un agente o a través de sistemas tecnológicos como fotomultas o radares.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-user-slash"></i><h4>Desvinculación de citaciones por compra de vehículo</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos y redactamos la solicitud para desvincular multas pendientes que no fueron cometidas por el nuevo propietario al comprar un vehículo.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-exchange-alt"></i><h4>Traspaso de multas (por no transferencia de dominio)</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos para el traspaso legal de las multas al verdadero responsable cuando se ha vendido un vehículo y el comprador no realizó la transferencia de dominio.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-heartbeat"></i><h4>Anulación por fallecimiento del titular</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos y presentamos la solicitud de anulación de multas emitidas antes del fallecimiento del propietario del vehículo.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-copy"></i><h4>Anulación por multas duplicadas o inconsistentes</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Detectamos estas irregularidades y te asesoramos para presentar la solicitud de anulación cuando existen dos o más multas por el mismo hecho o información contradictoria.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-hourglass-half"></i><h4>Solicitud de prescripción de multas</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos y preparamos la solicitud para declarar la prescripción (caducidad) de multas cuando ha pasado el plazo legal sin que se haya iniciado su cobro. En Ecuador, las multas de tránsito prescriben después de 5 años de ser emitidas.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-question-circle"></i><h4>Revisión de casos particulares</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Atendemos consultas y te asesoramos en gestiones específicas ante la entidad de tránsito correspondiente (ATM, AMT, CTE, ANT) cuando se requiere un análisis normativo detallado.</p></div></div>
+            </div>
+        </div>
+
+        <!-- Sección 2: Trámites respecto a vehículos -->
+        <div class="admin-category">
+            <div class="admin-category-header"><i class="fas fa-car"></i><h3>2. Trámites respecto a vehículos</h3></div>
+            <div class="admin-grid">
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-parking"></i><h4>Salida de vehículos de centros de retención (CRV)</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te guiamos paso a paso en los trámites administrativos necesarios para retirar tu vehículo de un Centro de Retención Vehicular (CRV). Esto incluye la obtención de órdenes de liberación (judiciales o fiscales), el pago de valores pendientes, la presentación de documentación y la coordinación con la grúa.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-chart-line"></i><h4>Gestión de multas y gravámenes</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Revisamos el estado de multas, bloqueos o gravámenes (ej. prendas comerciales) que impidan la libre disposición del vehículo y te asesoramos sobre cómo levantar estos bloqueos.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-file-contract"></i><h4>Traspaso y transferencia de dominio</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos sobre el proceso de transferencia de propiedad, resolviendo dudas sobre contratos y documentación necesaria.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-trash-alt"></i><h4>Inscripción de baja vehicular</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te guiamos en el trámite de baja definitiva del vehículo en el registro de la ANT cuando corresponda.</p></div></div>
+            </div>
+        </div>
+
+        <!-- Sección 3: Gestión de licencias de conducir -->
+        <div class="admin-category">
+            <div class="admin-category-header"><i class="fas fa-id-card"></i><h3>3. Gestión de licencias de conducir</h3></div>
+            <div class="admin-grid">
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-sync-alt"></i><h4>Renovación de licencia</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te guiamos en todo el proceso: verificación de requisitos, realización de exámenes médicos y psicosomáticos, agendamiento de citas y pago de tasas.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-graduation-cap"></i><h4>Obtención de licencia por primera vez</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asesoramos sobre los requisitos y pasos para obtener tu licencia de conducir por primera vez, incluyendo la presentación de documentos y la aprobación de los exámenes teóricos y prácticos.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-star-of-life"></i><h4>Recuperación de puntos en la licencia</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te explicamos el sistema de puntos, cómo se descuentan y cómo puedes recuperarlos (ej. realizando cursos de reeducación vial o gestionando la anulación de multas injustas).</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-copy"></i><h4>Duplicado de licencia por pérdida o robo</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te guiamos en el trámite para obtener un duplicado de tu licencia en caso de extravío o hurto.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-mobile-alt"></i><h4>Asesoría para obtener la licencia digital</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te asistimos en el proceso para descargar y activar tu licencia digital a través de la plataforma Gob.ec, facilitando el acceso al documento.</p></div></div>
+            </div>
+        </div>
+
+        <!-- Sección 4: Asesoría en trámites y certificados en línea -->
+        <div class="admin-category">
+            <div class="admin-category-header"><i class="fas fa-globe"></i><h3>4. Asesoría en trámites y certificados en línea</h3></div>
+            <div class="admin-grid">
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-certificate"></i><h4>Generar certificados en línea</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te guiamos y ayudamos a obtener los principales certificados que emite la ANT: Certificado de poseer vehículo, Certificado del conductor, Certificado único vehicular, Historial de infracciones del conductor, Historial de infracciones del vehículo.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-laptop"></i><h4>Realizar otros trámites en línea</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Te explicamos cómo hacer en línea otras gestiones clave, como consultar el estado de tus citaciones, generar órdenes de pago, verificar la validez de tus certificados y más.</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-exclamation-triangle"></i><h4>Solucionar problemas comunes</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Si el sistema en línea te da error, te asesoramos sobre las causas más frecuentes y cómo solucionarlas (ej. problemas con el correo electrónico, datos desactualizados, etc.).</p></div></div>
+                <div class="admin-card"><div class="admin-card-header"><i class="fas fa-chart-simple"></i><h4>Interpretar resultados</h4><i class="fas fa-chevron-down toggle-icon"></i></div><div class="admin-card-content"><p>Una vez que obtengas un certificado o realices una consulta, te ayudamos a entender toda la información que aparece y qué significa para tu caso particular.</p></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== CONSULTA DE MULTAS (NUEVA VERSIÓN) ==================== -->
+<section id="consulta">
+    <div class="container">
+        <h2 class="section-title">🔍 Consulta tus multas</h2>
+        <p class="section-subhead">Accede directamente a las plataformas oficiales de consulta. Selecciona la institución que emitió la citación.</p>
+        <div class="consulta-panel">
+            <!-- TRES ICONOS ESTÁTICOS GRANDES -->
+            <div class="consulta-grid">
+                <div class="consulta-card">
+                    <i class="fas fa-building"></i>
+                    <h4>Agencia Nacional de Tránsito (ANT)</h4>
+                    <a href="https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar ANT</a>
+                </div>
+                <div class="consulta-card">
+                    <i class="fas fa-traffic-light"></i>
+                    <h4>Comisión de Tránsito (CTE)</h4>
+                    <a href="https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=16&ps_accion=P55" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar CTE</a>
+                </div>
+                <div class="consulta-card">
+                    <i class="fas fa-city"></i>
+                    <h4>ATM Guayaquil</h4>
+                    <a href="https://consultas.atm.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar ATM</a>
+                </div>
+            </div>
+
+            <!-- BUSCADOR DE CANTONES (GADs y mancomunidades) -->
+            <div class="search-canton">
+                <h4><i class="fas fa-map-marker-alt"></i> ¿Por dónde circulas con mayor frecuencia?</h4>
+                <div class="search-box">
+                    <input type="text" id="cantonSearch" placeholder="Ej: Nobol, Durán, Daule, Quevedo, Ambato..." autocomplete="off">
+                    <button id="searchCantonBtn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                <div id="suggestionsList" class="suggestions-list"></div>
+                <p style="font-size: 0.8rem; color: #555;"><i class="fas fa-info-circle"></i> Escribe el nombre de tu cantón o ciudad. El sistema te redirigirá a la entidad correcta (Mancomunidad o GAD).</p>
+            </div>
+
+            <!-- CONTENEDOR PARA EL ICONO DINÁMICO (se muestra solo al seleccionar) -->
+            <div id="dynamicIconContainer" style="min-height: 120px;"></div>
+
+            <!-- Mensaje de respaldo -->
+            <div class="info-backup">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>¿No encuentras tu cantón?</strong> Si tu ciudad no aparece en la lista, puedes consultar directamente en la <a href="https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank">página de la ANT</a> (la información suele migrar a esta base de datos). También puedes <a href="#contacto">contactarnos</a> y te ayudaremos a encontrar la página de consulta correcta.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="testimonials-section">
+    <div class="container">
+        <h2 class="section-title">Casos reales</h2>
+        <div class="slider-container"><div id="testimonialSlider" class="testimonial-slide"></div></div>
+        <div class="slider-controls"><button class="slider-btn" id="prevSlide"><i class="fas fa-chevron-left"></i></button><button class="slider-btn" id="nextSlide"><i class="fas fa-chevron-right"></i></button></div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <h2 class="section-title">Preguntas frecuentes</h2>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question">¿Cuál es la diferencia entre la vía judicial y la administrativa? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>La vía administrativa se agota ante las entidades de tránsito (ANT, ATM, CTE). La vía judicial implica acudir a jueces de tránsito o fiscales. En JurisVial manejamos ambas, según la estrategia más conveniente.</p></div></div>
+            <div class="faq-item"><div class="faq-question">¿Qué hago si mi vehículo está retenido en un canchón? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Te guiamos en todo el proceso administrativo y/o judicial para la liberación, incluyendo gestión de multas y coordinación con el centro de retención.</p></div></div>
+            <div class="faq-item"><div class="faq-question">¿Cómo funcionan los trámites en línea de la ANT? <i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>Te asesoramos paso a paso para generar certificados, consultar multas y realizar pagos. Si hay errores, te ayudamos a resolverlos.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+    <div class="container">
+        <h2 class="section-title">Contáctanos</h2>
+        <p class="section-subhead">Déjanos tus datos y un especialista te asesorará sin compromiso.</p>
+        <div class="contact-grid">
+            <div>
+                <form id="contactForm">
+                    <div class="form-group"><input type="text" id="nombre" placeholder="Nombre completo" required></div>
+                    <div class="form-group"><input type="email" id="email" placeholder="Correo electrónico" required></div>
+                    <div class="form-group"><input type="tel" id="telefono" placeholder="WhatsApp / Teléfono"></div>
+                    <div class="form-group"><textarea rows="4" id="mensaje" placeholder="Cuéntanos tu caso..."></textarea></div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Enviar consulta</button>
+                    <p id="formFeedback" style="margin-top: 12px; font-size:0.85rem;"></p>
+                </form>
+            </div>
+            <div>
+                <div class="contact-info">
+                    <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold);"></i> Guayaquil - Ecuador (Atención presencial y virtual)</p>
+                    <p><i class="fas fa-phone-alt" style="color: var(--accent-gold);"></i> +593 4 299 9000</p>
+                    <p><i class="fas fa-envelope" style="color: var(--accent-gold);"></i> asesoria@jurisvial.ec</p>
+                    <p><i class="fab fa-whatsapp" style="color: var(--accent-gold);"></i> +593 99 999 9999</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-social">
+            <a href="#" style="color:white; margin:0 0.5rem;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="color:white; margin:0 0.5rem;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="color:white; margin:0 0.5rem;"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p style="margin-top: 1rem;">&copy; 2025 JurisVial · Asesoría legal especializada en tránsito. Judicial y administrativo con responsabilidad y ética.</p>
+        <p style="font-size: 0.8rem;">Guayaquil - Ecuador</p>
+    </div>
+</footer>
+
+<script>
+    // ======================== MAPA DE CANTONES A ENTIDADES Y URLS ========================
+    // Basado en el PDF y lógica de mancomunidades
+    const entidades = {
+        // Mancomunidad Norte (código 02) - Incluye cantones del norte
+        "Mancomunidad Norte": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=02&accion=P55", icono: "fas fa-handshake", cantones: ["san lorenzo", "eloy alfaro", "quito", "cayambe", "pedro moncayo", "rumiñahui", "mejía"] },
+        // Mancomunidad Centro Guayas (código 21) - Incluye Nobol, etc.
+        "Mancomunidad Centro Guayas": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=21&accion=P55", icono: "fas fa-handshake", cantones: ["nobol", "lomas de sargentillo", "pedro carbo", "isidro ayora", "el triunfo", "simón bolívar"] },
+        // GADs individuales según PDF
+        "Quito - Agencia Metropolitana de Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=03&accion=P55", icono: "fas fa-city", cantones: ["quito"] },
+        "Manta - Alcaldía ITS Multas SGI": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=04&accion=P55", icono: "fas fa-city", cantones: ["manta"] },
+        "Portoviejo - Porto Vial": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=05&accion=P55", icono: "fas fa-road", cantones: ["portoviejo"] },
+        "Santo Domingo - Empresa Pública Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=06&accion=P55", icono: "fas fa-truck", cantones: ["santo domingo"] },
+        "Babahoyo": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=07&accion=P55", icono: "fas fa-city", cantones: ["babahoyo"] },
+        "Riobamba - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=08&accion=P55", icono: "fas fa-landmark", cantones: ["riobamba"] },
+        "Esmeraldas - Esmevial": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=10&accion=P55", icono: "fas fa-water", cantones: ["esmeraldas"] },
+        "Pasaje - Tránsito Pasaje EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=11&accion=P55", icono: "fas fa-road", cantones: ["pasaje"] },
+        "Loja - Municipio": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=14&accion=P55", icono: "fas fa-mountain", cantones: ["loja"] },
+        "Machala - Movilidad Machala EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=17&accion=P55", icono: "fas fa-car", cantones: ["machala"] },
+        "Chone - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=19&accion=P55", icono: "fas fa-tree", cantones: ["chone"] },
+        "ATM - Centro Guayas (Mancomunidad)": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=21&accion=P55", icono: "fas fa-handshake", cantones: ["centro guayas"] },
+        "Durán - Autoridad de Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=22&accion=P55", icono: "fas fa-industry", cantones: ["durán"] },
+        "Azogues - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=23&accion=P55", icono: "fas fa-church", cantones: ["azogues"] },
+        "Latacunga - Movilidad EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=24&accion=P55", icono: "fas fa-mountain", cantones: ["latacunga"] },
+        "Salinas - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=25&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["salinas"] },
+        "Pedernales - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=26&accion=P55", icono: "fas fa-tree", cantones: ["pedernales"] },
+        "Flavio Alfaro": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=27&accion=P55", icono: "fas fa-leaf", cantones: ["flavio alfaro"] },
+        "Balzar - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=29&accion=P55", icono: "fas fa-tractor", cantones: ["balzar"] },
+        "Junín - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=30&accion=P55", icono: "fas fa-leaf", cantones: ["junín"] },
+        "Bucay": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=31&accion=P55", icono: "fas fa-mountain", cantones: ["bucay"] },
+        "Jama - Gobierno Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=32&accion=P55", icono: "fas fa-water", cantones: ["jama"] },
+        "Santa Elena - EIIIU Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=33&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["santa elena"] },
+        "San Vicente - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=34&accion=P55", icono: "fas fa-city", cantones: ["san vicente"] },
+        "La Concordia - EP Servicios Integrales": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=35&accion=P55", icono: "fas fa-building", cantones: ["la concordia"] },
+        "Playas - Unidad de Tránsito Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=36&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["playas"] },
+        "Puerto López - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=37&accion=P55", icono: "fas fa-fish", cantones: ["puerto lópez"] },
+        "Oña - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=38&accion=P55", icono: "fas fa-mountain", cantones: ["oña"] },
+        "Montecristi - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=39&accion=P55", icono: "fas fa-hat-cowboy", cantones: ["montecristi"] },
+        "Jujan - EP Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=40&accion=P55", icono: "fas fa-tractor", cantones: ["jujan"] },
+        "El Empalme - Gobierno Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=41&accion=P55", icono: "fas fa-industry", cantones: ["el empalme"] },
+        "Quijos - Eres Tú": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=42&accion=P55", icono: "fas fa-tree", cantones: ["quijos"] },
+        "Naranjal - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=44&accion=P55", icono: "fas fa-leaf", cantones: ["naranjal"] },
+        "Daule - ATM": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=45&accion=P55", icono: "fas fa-city", cantones: ["daule"] },
+        "Ambato - La Nueva Historia": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=55&accion=P55", icono: "fas fa-mountain", cantones: ["ambato"] },
+        "Milagro - ACT": { url: "https://movilidad.act.gob.ec/portal-servicios/#/public", icono: "fas fa-industry", cantones: ["milagro"] },
+        "Cuenca - EMOV": { url: "https://webcliente.emov.gob.ec", icono: "fas fa-church", cantones: ["cuenca"] }
+    };
+
+    // Función para encontrar entidad por nombre de cantón
+    function findEntityByCanton(cantonName) {
+        const lowerCanton = cantonName.toLowerCase().trim();
+        for (const [entidad, data] of Object.entries(entidades)) {
+            if (data.cantones && data.cantones.some(c => c === lowerCanton)) {
+                return { nombre: entidad, url: data.url, icono: data.icono };
+            }
+        }
+        return null;
+    }
+
+    // Elementos DOM
+    const searchInput = document.getElementById('cantonSearch');
+    const suggestionsDiv = document.getElementById('suggestionsList');
+    const searchBtn = document.getElementById('searchCantonBtn');
+    const dynamicContainer = document.getElementById('dynamicIconContainer');
+
+    // Mostrar sugerencias mientras escribe
+    searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        if (query === "") {
+            suggestionsDiv.style.display = 'none';
+            return;
+        }
+        // Buscar coincidencias en todos los cantones
+        const matches = [];
+        for (const [entidad, data] of Object.entries(entidades)) {
+            data.cantones.forEach(canton => {
+                if (canton.includes(query)) {
+                    matches.push({ canton: canton, entidad: entidad, url: data.url });
+                }
+            });
+        }
+        if (matches.length > 0) {
+            suggestionsDiv.innerHTML = matches.slice(0, 6).map(m => `<div data-canton="${m.canton}" data-entidad="${m.entidad}" data-url="${m.url}">📍 ${m.canton.charAt(0).toUpperCase() + m.canton.slice(1)} → ${m.entidad}</div>`).join('');
+            suggestionsDiv.style.display = 'block';
+        } else {
+            suggestionsDiv.style.display = 'none';
+        }
+    });
+
+    // Clic en sugerencia
+    suggestionsDiv.addEventListener('click', function(e) {
+        const target = e.target.closest('div');
+        if (target && target.dataset.canton) {
+            const canton = target.dataset.canton;
+            const entidad = target.dataset.entidad;
+            const url = target.dataset.url;
+            searchInput.value = canton.charAt(0).toUpperCase() + canton.slice(1);
+            suggestionsDiv.style.display = 'none';
+            showDynamicIcon(entidad, url);
+        }
+    });
+
+    // Búsqueda manual con botón
+    searchBtn.addEventListener('click', function() {
+        const query = searchInput.value.trim();
+        if (query === "") {
+            alert("Por favor, escribe el nombre de un cantón o ciudad.");
+            return;
+        }
+        const entity = findEntityByCanton(query);
+        if (entity) {
+            showDynamicIcon(entity.nombre, entity.url);
+        } else {
+            // No encontrado: sugerir ANT
+            showDynamicIcon("No encontramos tu cantón, consulta en la ANT", "https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp");
+        }
+    });
+
+    // Función para mostrar el icono dinámico grande
+    function showDynamicIcon(nombre, url) {
+        dynamicContainer.innerHTML = `
+            <div class="consulta-card dynamic-card" style="background: #f0f7ff; border: 2px solid var(--accent-gold);">
+                <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--accent-gold);"></i>
+                <h4>${nombre}</h4>
+                <a href="${url}" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar multas</a>
+            </div>
+        `;
+        dynamicContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // Ocultar sugerencias al hacer clic fuera
+    document.addEventListener('click', function(e) {
+        if (!searchInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
+            suggestionsDiv.style.display = 'none';
+        }
+    });
+
+    // ======================== RESTO DE SCRIPTS (sin cambios) ========================
+    // Mobile menu
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinksEl = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinksEl.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(l => l.addEventListener('click', () => navLinksEl.classList.remove('active')));
+
+    // Testimonios slider
+    const testimonials = [
+        { name: "Luis G., conductor", text: "Gracias a JurisVial logré la impugnación judicial de una multa injusta. El juez anuló la sanción. Excelente representación." },
+        { name: "Karina M., transportista", text: "Mi vehículo estaba retenido por un accidente leve. Gestionaron con el fiscal la devolución en tiempo récord." },
+        { name: "Jorge R., particular", text: "Me ayudaron con la prescripción administrativa de varias multas antiguas. Todo transparente y rápido." }
+    ];
+    let current = 0;
+    const sliderDiv = document.getElementById('testimonialSlider');
+    function renderTesti() {
+        if(sliderDiv) {
+            const t = testimonials[current];
+            sliderDiv.innerHTML = `<i class="fas fa-quote-left" style="color: var(--accent-gold); font-size: 2rem;"></i><p class="testimonial-text">“${t.text}”</p><div class="client-name"><i class="fas fa-user-check"></i> ${t.name}</div>`;
+        }
+    }
+    document.getElementById('prevSlide')?.addEventListener('click', () => { current = (current - 1 + testimonials.length) % testimonials.length; renderTesti(); });
+    document.getElementById('nextSlide')?.addEventListener('click', () => { current = (current + 1) % testimonials.length; renderTesti(); });
+    renderTesti();
+
+    // FAQ acordeón
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const q = item.querySelector('.faq-question');
+        q.addEventListener('click', () => {
+            const active = document.querySelector('.faq-item.active');
+            if(active && active !== item) active.classList.remove('active');
+            item.classList.toggle('active');
+        });
+    });
+    if(faqItems.length) faqItems[0].classList.add('active');
+
+    // Tarjetas administrativas expandibles
+    const adminCards = document.querySelectorAll('.admin-card');
+    adminCards.forEach(card => {
+        const header = card.querySelector('.admin-card-header');
+        header.addEventListener('click', () => {
+            card.classList.toggle('expanded');
+        });
+    });
+
+    // Formulario contacto
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('formFeedback');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        if(!nombre || !email) {
+            feedback.innerHTML = '<span style="color:#b91c1c;">Completa nombre y correo.</span>';
+            return;
+        }
+        feedback.innerHTML = '<span style="color:#0a2b3e;"><i class="fas fa-check-circle"></i> ¡Mensaje enviado! Un asesor te contactará pronto.</span>';
+        form.reset();
+        setTimeout(() => feedback.innerHTML = '', 4000);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if(href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
 </body>
 </html>

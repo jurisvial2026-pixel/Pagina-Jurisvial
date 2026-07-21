@@ -398,8 +398,43 @@
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .form-group { margin-bottom: 1.2rem; }
         input, textarea { width: 100%; padding: 0.9rem 1rem; border-radius: 20px; border: 1px solid var(--gray-border); font-family: inherit; }
-        .whatsapp-float { position: fixed; bottom: 24px; right: 24px; background: #25D366; color: white; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; box-shadow: 0 4px 14px rgba(0,0,0,0.2); z-index: 99; text-decoration: none; }
-        footer { background: #0a1e2c; color: #cddfe7; padding: 2rem 0; text-align: center; }
+
+        /* Botones flotantes */
+        .float-btn {
+            position: fixed;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+            z-index: 99;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+        .float-btn:hover {
+            transform: scale(1.05);
+        }
+        .whatsapp-float {
+            bottom: 24px;
+            background: #25D366;
+            color: white;
+        }
+        .email-float {
+            bottom: 90px;
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        footer {
+            background: #0a1e2c;
+            color: #cddfe7;
+            padding: 2rem 0;
+            text-align: center;
+        }
 
         @media (max-width: 880px) {
             .nav-links { display: none; width: 100%; flex-direction: column; background: white; padding: 1rem; border-radius: 24px; }
@@ -413,8 +448,11 @@
 </head>
 <body>
 
-<!-- WhatsApp flotante con número actualizado -->
-<a href="https://wa.me/593998263649?text=Hola%20JurisVial,%20necesito%20asesoría%20legal%20en%20tránsito" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- Botón flotante de correo (scrollea a contacto) -->
+<a href="#contacto" class="float-btn email-float"><i class="fas fa-envelope"></i></a>
+
+<!-- Botón flotante de WhatsApp con número actualizado -->
+<a href="https://wa.me/593998263649?text=Hola%20JurisVial,%20necesito%20asesoría%20legal%20en%20tránsito" class="float-btn whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <nav class="navbar">
     <div class="container nav-container">

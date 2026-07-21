@@ -328,7 +328,7 @@
             transform: rotate(180deg);
         }
 
-        /* Panel de consulta de multas - NUEVA VERSIÓN con iconos grandes estáticos y dinámico */
+        /* Panel de consulta de multas - VERSIÓN SIMPLIFICADA solo ANT */
         .consulta-panel {
             background: white;
             border-radius: 32px;
@@ -336,20 +336,16 @@
             box-shadow: var(--shadow-md);
             margin-top: 1rem;
             border: 1px solid var(--gray-border);
-        }
-        .consulta-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            text-align: center;
         }
         .consulta-card {
             background: var(--gray-bg);
             border-radius: 28px;
             padding: 2rem 1rem;
-            text-align: center;
             transition: all 0.2s;
             border: 1px solid transparent;
+            max-width: 400px;
+            margin: 0 auto;
         }
         .consulta-card:hover {
             border-color: var(--accent-gold);
@@ -380,100 +376,6 @@
         }
         .link-consulta:hover {
             background: var(--accent-gold);
-        }
-
-        /* Sección de búsqueda por cantón */
-        .search-canton {
-            background: #fef7e0;
-            border-radius: 28px;
-            padding: 1.8rem;
-            margin: 2rem 0 1.5rem;
-        }
-        .search-canton h4 {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .search-box {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-        .search-box input {
-            flex: 1;
-            padding: 0.9rem 1.2rem;
-            border-radius: 60px;
-            border: 1px solid var(--gray-border);
-            font-size: 1rem;
-            outline: none;
-            transition: all 0.2s;
-        }
-        .search-box input:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 0 3px rgba(194, 161, 91, 0.2);
-        }
-        .search-box button {
-            background: var(--primary-dark);
-            color: white;
-            border: none;
-            border-radius: 60px;
-            padding: 0 1.8rem;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .search-box button:hover {
-            background: var(--accent-gold);
-        }
-        .suggestions-list {
-            background: white;
-            border-radius: 20px;
-            box-shadow: var(--shadow-md);
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 0.5rem;
-            display: none;
-        }
-        .suggestions-list div {
-            padding: 0.8rem 1.2rem;
-            cursor: pointer;
-            border-bottom: 1px solid var(--gray-border);
-        }
-        .suggestions-list div:hover {
-            background: var(--accent-gold-light);
-        }
-
-        /* Icono dinámico (se muestra solo cuando se selecciona un cantón) */
-        .dynamic-card {
-            margin-top: 1.5rem;
-            animation: fadeInUp 0.4s ease;
-        }
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .info-backup {
-            background: #e8f0fe;
-            border-radius: 20px;
-            padding: 1rem;
-            font-size: 0.85rem;
-            display: flex;
-            gap: 0.8rem;
-            align-items: flex-start;
-            margin-top: 1.5rem;
-        }
-        .info-backup i {
-            color: var(--accent-gold);
-            font-size: 1.2rem;
         }
 
         /* Testimonios */
@@ -511,7 +413,8 @@
 </head>
 <body>
 
-<a href="https://wa.me/593999999999?text=Hola%20JurisVial,%20necesito%20asesoría%20legal%20en%20tránsito" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<!-- WhatsApp flotante con número actualizado -->
+<a href="https://wa.me/593998263649?text=Hola%20JurisVial,%20necesito%20asesoría%20legal%20en%20tránsito" class="whatsapp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <nav class="navbar">
     <div class="container nav-container">
@@ -639,49 +542,16 @@
     </div>
 </section>
 
-<!-- ==================== CONSULTA DE MULTAS (NUEVA VERSIÓN) ==================== -->
+<!-- ==================== CONSULTA DE MULTAS (SOLO ANT) ==================== -->
 <section id="consulta">
     <div class="container">
         <h2 class="section-title">🔍 Consulta tus multas</h2>
-        <p class="section-subhead">Accede directamente a las plataformas oficiales de consulta. Selecciona la institución que emitió la citación.</p>
+        <p class="section-subhead">Accede directamente a la plataforma oficial de la Agencia Nacional de Tránsito (ANT).</p>
         <div class="consulta-panel">
-            <!-- TRES ICONOS ESTÁTICOS GRANDES -->
-            <div class="consulta-grid">
-                <div class="consulta-card">
-                    <i class="fas fa-building"></i>
-                    <h4>Agencia Nacional de Tránsito (ANT)</h4>
-                    <a href="https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar ANT</a>
-                </div>
-                <div class="consulta-card">
-                    <i class="fas fa-traffic-light"></i>
-                    <h4>Comisión de Tránsito (CTE)</h4>
-                    <a href="https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=16&ps_accion=P55" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar CTE</a>
-                </div>
-                <div class="consulta-card">
-                    <i class="fas fa-city"></i>
-                    <h4>ATM Guayaquil</h4>
-                    <a href="https://consultas.atm.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar ATM</a>
-                </div>
-            </div>
-
-            <!-- BUSCADOR DE CANTONES (GADs y mancomunidades) -->
-            <div class="search-canton">
-                <h4><i class="fas fa-map-marker-alt"></i> ¿Por dónde circulas con mayor frecuencia?</h4>
-                <div class="search-box">
-                    <input type="text" id="cantonSearch" placeholder="Ej: Nobol, Durán, Daule, Quevedo, Ambato..." autocomplete="off">
-                    <button id="searchCantonBtn"><i class="fas fa-search"></i> Buscar</button>
-                </div>
-                <div id="suggestionsList" class="suggestions-list"></div>
-                <p style="font-size: 0.8rem; color: #555;"><i class="fas fa-info-circle"></i> Escribe el nombre de tu cantón o ciudad. El sistema te redirigirá a la entidad correcta (Mancomunidad o GAD).</p>
-            </div>
-
-            <!-- CONTENEDOR PARA EL ICONO DINÁMICO (se muestra solo al seleccionar) -->
-            <div id="dynamicIconContainer" style="min-height: 120px;"></div>
-
-            <!-- Mensaje de respaldo -->
-            <div class="info-backup">
-                <i class="fas fa-info-circle"></i>
-                <p><strong>¿No encuentras tu cantón?</strong> Si tu ciudad no aparece en la lista, puedes consultar directamente en la <a href="https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank">página de la ANT</a> (la información suele migrar a esta base de datos). También puedes <a href="#contacto">contactarnos</a> y te ayudaremos a encontrar la página de consulta correcta.</p>
+            <div class="consulta-card">
+                <i class="fas fa-building"></i>
+                <h4>Agencia Nacional de Tránsito (ANT)</h4>
+                <a href="https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar ANT</a>
             </div>
         </div>
     </div>
@@ -748,143 +618,7 @@
 </footer>
 
 <script>
-    // ======================== MAPA DE CANTONES A ENTIDADES Y URLS ========================
-    // Basado en el PDF y lógica de mancomunidades
-    const entidades = {
-        // Mancomunidad Norte (código 02) - Incluye cantones del norte
-        "Mancomunidad Norte": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=02&accion=P55", icono: "fas fa-handshake", cantones: ["san lorenzo", "eloy alfaro", "quito", "cayambe", "pedro moncayo", "rumiñahui", "mejía"] },
-        // Mancomunidad Centro Guayas (código 21) - Incluye Nobol, etc.
-        "Mancomunidad Centro Guayas": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=21&accion=P55", icono: "fas fa-handshake", cantones: ["nobol", "lomas de sargentillo", "pedro carbo", "isidro ayora", "el triunfo", "simón bolívar"] },
-        // GADs individuales según PDF
-        "Quito - Agencia Metropolitana de Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=03&accion=P55", icono: "fas fa-city", cantones: ["quito"] },
-        "Manta - Alcaldía ITS Multas SGI": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=04&accion=P55", icono: "fas fa-city", cantones: ["manta"] },
-        "Portoviejo - Porto Vial": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=05&accion=P55", icono: "fas fa-road", cantones: ["portoviejo"] },
-        "Santo Domingo - Empresa Pública Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=06&accion=P55", icono: "fas fa-truck", cantones: ["santo domingo"] },
-        "Babahoyo": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=07&accion=P55", icono: "fas fa-city", cantones: ["babahoyo"] },
-        "Riobamba - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=08&accion=P55", icono: "fas fa-landmark", cantones: ["riobamba"] },
-        "Esmeraldas - Esmevial": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=10&accion=P55", icono: "fas fa-water", cantones: ["esmeraldas"] },
-        "Pasaje - Tránsito Pasaje EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=11&accion=P55", icono: "fas fa-road", cantones: ["pasaje"] },
-        "Loja - Municipio": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=14&accion=P55", icono: "fas fa-mountain", cantones: ["loja"] },
-        "Machala - Movilidad Machala EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=17&accion=P55", icono: "fas fa-car", cantones: ["machala"] },
-        "Chone - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=19&accion=P55", icono: "fas fa-tree", cantones: ["chone"] },
-        "ATM - Centro Guayas (Mancomunidad)": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=21&accion=P55", icono: "fas fa-handshake", cantones: ["centro guayas"] },
-        "Durán - Autoridad de Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=22&accion=P55", icono: "fas fa-industry", cantones: ["durán"] },
-        "Azogues - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=23&accion=P55", icono: "fas fa-church", cantones: ["azogues"] },
-        "Latacunga - Movilidad EP": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=24&accion=P55", icono: "fas fa-mountain", cantones: ["latacunga"] },
-        "Salinas - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=25&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["salinas"] },
-        "Pedernales - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=26&accion=P55", icono: "fas fa-tree", cantones: ["pedernales"] },
-        "Flavio Alfaro": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=27&accion=P55", icono: "fas fa-leaf", cantones: ["flavio alfaro"] },
-        "Balzar - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=29&accion=P55", icono: "fas fa-tractor", cantones: ["balzar"] },
-        "Junín - GAD Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=30&accion=P55", icono: "fas fa-leaf", cantones: ["junín"] },
-        "Bucay": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=31&accion=P55", icono: "fas fa-mountain", cantones: ["bucay"] },
-        "Jama - Gobierno Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=32&accion=P55", icono: "fas fa-water", cantones: ["jama"] },
-        "Santa Elena - EIIIU Tránsito": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=33&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["santa elena"] },
-        "San Vicente - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=34&accion=P55", icono: "fas fa-city", cantones: ["san vicente"] },
-        "La Concordia - EP Servicios Integrales": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=35&accion=P55", icono: "fas fa-building", cantones: ["la concordia"] },
-        "Playas - Unidad de Tránsito Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=36&accion=P55", icono: "fas fa-umbrella-beach", cantones: ["playas"] },
-        "Puerto López - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=37&accion=P55", icono: "fas fa-fish", cantones: ["puerto lópez"] },
-        "Oña - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=38&accion=P55", icono: "fas fa-mountain", cantones: ["oña"] },
-        "Montecristi - GAD": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=39&accion=P55", icono: "fas fa-hat-cowboy", cantones: ["montecristi"] },
-        "Jujan - EP Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=40&accion=P55", icono: "fas fa-tractor", cantones: ["jujan"] },
-        "El Empalme - Gobierno Municipal": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=41&accion=P55", icono: "fas fa-industry", cantones: ["el empalme"] },
-        "Quijos - Eres Tú": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=42&accion=P55", icono: "fas fa-tree", cantones: ["quijos"] },
-        "Naranjal - Alcaldía": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=44&accion=P55", icono: "fas fa-leaf", cantones: ["naranjal"] },
-        "Daule - ATM": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=45&accion=P55", icono: "fas fa-city", cantones: ["daule"] },
-        "Ambato - La Nueva Historia": { url: "https://servicios.axiscloud.ec/AutoServicio/inicio.jsp?ps_empresa=55&accion=P55", icono: "fas fa-mountain", cantones: ["ambato"] },
-        "Milagro - ACT": { url: "https://movilidad.act.gob.ec/portal-servicios/#/public", icono: "fas fa-industry", cantones: ["milagro"] },
-        "Cuenca - EMOV": { url: "https://webcliente.emov.gob.ec", icono: "fas fa-church", cantones: ["cuenca"] }
-    };
-
-    // Función para encontrar entidad por nombre de cantón
-    function findEntityByCanton(cantonName) {
-        const lowerCanton = cantonName.toLowerCase().trim();
-        for (const [entidad, data] of Object.entries(entidades)) {
-            if (data.cantones && data.cantones.some(c => c === lowerCanton)) {
-                return { nombre: entidad, url: data.url, icono: data.icono };
-            }
-        }
-        return null;
-    }
-
-    // Elementos DOM
-    const searchInput = document.getElementById('cantonSearch');
-    const suggestionsDiv = document.getElementById('suggestionsList');
-    const searchBtn = document.getElementById('searchCantonBtn');
-    const dynamicContainer = document.getElementById('dynamicIconContainer');
-
-    // Mostrar sugerencias mientras escribe
-    searchInput.addEventListener('input', function() {
-        const query = this.value.toLowerCase().trim();
-        if (query === "") {
-            suggestionsDiv.style.display = 'none';
-            return;
-        }
-        // Buscar coincidencias en todos los cantones
-        const matches = [];
-        for (const [entidad, data] of Object.entries(entidades)) {
-            data.cantones.forEach(canton => {
-                if (canton.includes(query)) {
-                    matches.push({ canton: canton, entidad: entidad, url: data.url });
-                }
-            });
-        }
-        if (matches.length > 0) {
-            suggestionsDiv.innerHTML = matches.slice(0, 6).map(m => `<div data-canton="${m.canton}" data-entidad="${m.entidad}" data-url="${m.url}">📍 ${m.canton.charAt(0).toUpperCase() + m.canton.slice(1)} → ${m.entidad}</div>`).join('');
-            suggestionsDiv.style.display = 'block';
-        } else {
-            suggestionsDiv.style.display = 'none';
-        }
-    });
-
-    // Clic en sugerencia
-    suggestionsDiv.addEventListener('click', function(e) {
-        const target = e.target.closest('div');
-        if (target && target.dataset.canton) {
-            const canton = target.dataset.canton;
-            const entidad = target.dataset.entidad;
-            const url = target.dataset.url;
-            searchInput.value = canton.charAt(0).toUpperCase() + canton.slice(1);
-            suggestionsDiv.style.display = 'none';
-            showDynamicIcon(entidad, url);
-        }
-    });
-
-    // Búsqueda manual con botón
-    searchBtn.addEventListener('click', function() {
-        const query = searchInput.value.trim();
-        if (query === "") {
-            alert("Por favor, escribe el nombre de un cantón o ciudad.");
-            return;
-        }
-        const entity = findEntityByCanton(query);
-        if (entity) {
-            showDynamicIcon(entity.nombre, entity.url);
-        } else {
-            // No encontrado: sugerir ANT
-            showDynamicIcon("No encontramos tu cantón, consulta en la ANT", "https://consultaweb.ant.gob.ec/PortalWEB/paginas/clientes/clp_criterio_consulta.jsp");
-        }
-    });
-
-    // Función para mostrar el icono dinámico grande
-    function showDynamicIcon(nombre, url) {
-        dynamicContainer.innerHTML = `
-            <div class="consulta-card dynamic-card" style="background: #f0f7ff; border: 2px solid var(--accent-gold);">
-                <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--accent-gold);"></i>
-                <h4>${nombre}</h4>
-                <a href="${url}" target="_blank" class="link-consulta"><i class="fas fa-external-link-alt"></i> Consultar multas</a>
-            </div>
-        `;
-        dynamicContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-
-    // Ocultar sugerencias al hacer clic fuera
-    document.addEventListener('click', function(e) {
-        if (!searchInput.contains(e.target) && !suggestionsDiv.contains(e.target)) {
-            suggestionsDiv.style.display = 'none';
-        }
-    });
-
-    // ======================== RESTO DE SCRIPTS (sin cambios) ========================
+    // ======================== SCRIPTS ========================
     // Mobile menu
     const menuToggle = document.getElementById('menuToggle');
     const navLinksEl = document.getElementById('navLinks');
@@ -930,20 +664,31 @@
         });
     });
 
-    // Formulario contacto
+    // Formulario de contacto: abre mailto con destino asesorias@jurisvial.com
     const form = document.getElementById('contactForm');
     const feedback = document.getElementById('formFeedback');
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         const nombre = document.getElementById('nombre').value.trim();
         const email = document.getElementById('email').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const mensaje = document.getElementById('mensaje').value.trim();
+
         if(!nombre || !email) {
             feedback.innerHTML = '<span style="color:#b91c1c;">Completa nombre y correo.</span>';
             return;
         }
-        feedback.innerHTML = '<span style="color:#0a2b3e;"><i class="fas fa-check-circle"></i> ¡Mensaje enviado! Un asesor te contactará pronto.</span>';
-        form.reset();
-        setTimeout(() => feedback.innerHTML = '', 4000);
+
+        const subject = "Consulta%20JurisVial";
+        const body = `Nombre: ${encodeURIComponent(nombre)}%0AEmail: ${encodeURIComponent(email)}%0ATeléfono: ${encodeURIComponent(telefono)}%0AMensaje: ${encodeURIComponent(mensaje)}`;
+        window.location.href = `mailto:asesorias@jurisvial.com?subject=${subject}&body=${body}`;
+        
+        feedback.innerHTML = '<span style="color:#0a2b3e;"><i class="fas fa-check-circle"></i> Abriendo tu cliente de correo... Recuerda enviar el mensaje.</span>';
+        // Opcional: limpiar el formulario después de un tiempo
+        setTimeout(() => {
+            form.reset();
+            feedback.innerHTML = '';
+        }, 5000);
     });
 
     // Smooth scroll
